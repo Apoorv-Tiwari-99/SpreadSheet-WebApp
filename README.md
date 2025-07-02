@@ -1,7 +1,3 @@
-Here's a concise and professional `README.md` section tailored for your React intern assignment submission:
-
----
-
 # React Spreadsheet Prototype
 
 This is a static, front-end-only React prototype built to visually replicate the provided Figma design, emulating a spreadsheet-like interface.
