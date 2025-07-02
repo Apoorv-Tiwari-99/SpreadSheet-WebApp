@@ -55,6 +55,7 @@ const App: React.FC = () => {
   }, [editingCell]);
 
   // Handle double click to enable editing
+  // FIX: Convert row[column.accessor] to string before passing to handleDoubleClick
   const handleDoubleClick = useCallback((rowIndex: number, columnId: string, value: string) => {
     setEditingCell({ rowIndex, columnId });
     setCellValue(value);
@@ -316,7 +317,8 @@ const App: React.FC = () => {
                     key={column.id}
                     className="flex-shrink-0 h-10 px-3 py-2 border-b border-r border-gray-200 flex items-center overflow-hidden whitespace-nowrap text-sm relative"
                     style={{ width: column.width }}
-                    onDoubleClick={() => handleDoubleClick(rowIndex, column.accessor, row[column.accessor])}
+                    // FIX: Convert value to string for handleDoubleClick
+                    onDoubleClick={() => handleDoubleClick(rowIndex, column.accessor, String(row[column.accessor]))}
                   >
                     {editingCell?.rowIndex === rowIndex && editingCell?.columnId === column.accessor ? (
                       <input
@@ -331,11 +333,13 @@ const App: React.FC = () => {
                     ) : (
                       <>
                         {column.id === 'status' ? (
-                          <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${getStatusClasses(row[column.accessor])}`}>
+                          // FIX: Convert value to string for getStatusClasses
+                          <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${getStatusClasses(String(row[column.accessor]))}`}>
                             {row[column.accessor]}
                           </span>
                         ) : column.id === 'priority' ? (
-                          <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${getPriorityClasses(row[column.accessor])}`}>
+                          // FIX: Convert value to string for getPriorityClasses
+                          <span className={`px-2 py-0.5 rounded-full text-xs font-medium ${getPriorityClasses(String(row[column.accessor]))}`}>
                             {row[column.accessor]}
                           </span>
                         ) : (
