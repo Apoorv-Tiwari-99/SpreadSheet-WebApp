@@ -1,69 +1,58 @@
-# React + TypeScript + Vite
+Here's a concise and professional `README.md` section tailored for your React intern assignment submission:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+# React Spreadsheet Prototype
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is a static, front-end-only React prototype built to visually replicate the provided Figma design, emulating a spreadsheet-like interface.
 
-## Expanding the ESLint configuration
+## 🚀 Setup Instructions
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **Clone the Repository**
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+   ```bash
+   git clone https://github.com/your-username/react-spreadsheet-assignment.git
+   cd react-spreadsheet-assignment
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+2. **Install Dependencies**
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+   ```bash
+   npm install
+   ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+3. **Run the Project**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+   ```bash
+   npm run dev
+   ```
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+4. **Lint and Type Check**
+
+   ```bash
+   npm run lint
+   npm run type-check
+   ```
+
+## 🛠 Tech Stack
+
+* **React 18 + Vite**
+* **TypeScript (strict mode)**
+* **Tailwind CSS**
+* **react-table** for grid layout
+
+## 📌 Features
+
+* Pixel-perfect layout based on [Figma design](https://www.figma.com/design/3nywpu5sz45RrCmwe68QZP/Intern-Design-Assigment?node-id=2-2535&t=DJGGMt8I4fiZjoIB-1)
+* Spreadsheet-style UI with scrollable rows and resizable columns (if stretch completed)
+* Interactive tabs, buttons, and toolbar (logs actions to console)
+* Responsive, accessible layout
+* Code follows ESLint + Prettier conventions
+
+## ⚖️ Trade-offs & Notes
+
+* **State Management**: Local component state was used to avoid unnecessary complexity, as required.
+* **Custom Grid**: While `react-table` was used for base functionality, minor custom styling and logic were added to match the spreadsheet layout.
+* **Keyboard Navigation & Column Resize**: Implemented partially due to time constraints. May not cover all edge cases like cell selection or multi-cell navigation.
+* **No Backend/Data Persistence**: This is a purely static front-end prototype, as per the assignment scope.
+
